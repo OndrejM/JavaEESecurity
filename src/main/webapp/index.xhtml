@@ -10,10 +10,10 @@
     <ui:define name="body">
         <h:form prependId="false">
             <h:outputLabel value="Name:" for="nameInput" />
-        <p:inputText id="firstname" value="#{primeBean.name}">
+        <p:inputText id="firstname" value="#{indexPage.name}">
             <p:ajax event="keyup" update="out1" />
         </p:inputText>
-        <h:outputText id="out1" value="#{primeBean.name}" />
+        <h:outputText id="out1" value="#{indexPage.name}" />
         </h:form>
     </ui:define>
 </ui:composition>

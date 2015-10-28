@@ -1,18 +1,43 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<web-app xmlns="http://java.sun.com/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.0" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
-  <display-name>ForgedJavaEE</display-name>
-  <session-config>
-    <session-timeout>30</session-timeout>
-  </session-config>
-  <mime-mapping>
-    <extension>ico</extension>
-    <mime-type>image/x-icon</mime-type>
-  </mime-mapping>
-  <context-param>
-    <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
-    <param-value>true</param-value>
-  </context-param>
-  <welcome-file-list>
-    <welcome-file>faces/index.xhtml</welcome-file>
-  </welcome-file-list>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="3.1" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd">
+    <display-name>ForgedJavaEE</display-name>
+    <session-config>
+        <session-timeout>30</session-timeout>
+    </session-config>
+    <mime-mapping>
+        <extension>ico</extension>
+        <mime-type>image/x-icon</mime-type>
+    </mime-mapping>
+    <context-param>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
+        <param-value>client</param-value>
+    </context-param>
+    <!-- Iba v pripade Mojarra - vytvori nove view ak uz neexistuje, bez tohto vyhodi ViewExpiredException. 
+    Portable alternativa je extendovat FaceletViewHandler a prepisat restoreView aby volala createView -->
+    <context-param>
+        <param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
+        <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <welcome-file-list>
+        <welcome-file>faces/index.xhtml</welcome-file>
+    </welcome-file-list>
+    <login-config>
+        <auth-method>BASIC</auth-method>
+        <realm-name>MyRealm</realm-name>
+    </login-config>
+    <error-page>
+        <location>error.xhtml</location>
+    </error-page>
 </web-app>
