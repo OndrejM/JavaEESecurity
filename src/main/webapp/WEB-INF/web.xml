@@ -19,6 +19,10 @@
     <!-- Iba v pripade Mojarra - vytvori nove view ak uz neexistuje, bez tohto vyhodi ViewExpiredException. 
     Portable alternativa je extendovat FaceletViewHandler a prepisat restoreView aby volala createView -->
     <context-param>
+        <param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
+        <param-value>true</param-value>
+    </context-param>
+    <context-param>
         <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
         <param-value>true</param-value>
     </context-param>
