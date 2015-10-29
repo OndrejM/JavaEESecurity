@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+      xmlns:of="http://omnifaces.org/functions">
+
+    <body>
+        <h1>Prihlásenie:</h1>
+        <form action="j_security_check" method="POST">
+            <p>
+                <div>
+                    <label for="meno">Meno</label>
+                </div>
+                <div>
+                    <input type="text" id="meno" name="j_username"></input>
+                </div>
+            </p>
+            <p>
+                <div>
+                    <label for="heslo">Heslo</label>
+                </div>
+                <div>
+                    <input type="password" id="heslo" name="j_password"></input>
+                </div>
+            </p>
+            <p>
+                <button type="submit">Prihlásiť</button>
+            </p>
+        </form>
+    </body>
+</html>

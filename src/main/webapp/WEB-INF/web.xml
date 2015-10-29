@@ -43,8 +43,12 @@
         <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
     <login-config>
-     <auth-method>BASIC</auth-method>
+     <auth-method>FORM</auth-method>
      <realm-name>MyRealm</realm-name>
+     <form-login-config>
+         <form-login-page>/login-simple.xhtml</form-login-page>
+         <form-error-page>/login-simple.xhtml</form-error-page>
+     </form-login-config>
     </login-config>
     <security-constraint>
      <web-resource-collection>
