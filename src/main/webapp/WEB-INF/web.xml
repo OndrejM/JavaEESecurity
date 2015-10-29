@@ -19,10 +19,6 @@
     <!-- Iba v pripade Mojarra - vytvori nove view ak uz neexistuje, bez tohto vyhodi ViewExpiredException. 
     Portable alternativa je extendovat FaceletViewHandler a prepisat restoreView aby volala createView -->
     <context-param>
-        <param-name>com.sun.faces.enableRestoreView11Compatibility</param-name>
-        <param-value>true</param-value>
-    </context-param>
-    <context-param>
         <param-name>javax.faces.INTERPRET_EMPTY_STRING_SUBMITTED_VALUES_AS_NULL</param-name>
         <param-value>true</param-value>
     </context-param>
@@ -30,14 +26,33 @@
         <param-name>javax.faces.DATETIMECONVERTER_DEFAULT_TIMEZONE_IS_SYSTEM_TIMEZONE</param-name>
         <param-value>true</param-value>
     </context-param>
+    <servlet>
+        <servlet-name>Faces Servlet</servlet-name>
+        <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
     <welcome-file-list>
-        <welcome-file>faces/index.xhtml</welcome-file>
+        <welcome-file>index.xhtml</welcome-file>
     </welcome-file-list>
     <login-config>
-        <auth-method>BASIC</auth-method>
-        <realm-name>MyRealm</realm-name>
+     <auth-method>BASIC</auth-method>
+     <realm-name>MyRealm</realm-name>
     </login-config>
+    <security-constraint>
+     <web-resource-collection>
+      <web-resource-name>ALL</web-resource-name>
+      <url-pattern>/index.xhtml</url-pattern>
+     </web-resource-collection>
+     <auth-constraint>
+      <role-name>guest</role-name>
+     </auth-constraint>
+    </security-constraint>
     <error-page>
-        <location>error.xhtml</location>
+        <exception-type>java.lang.Exception</exception-type>
+        <location>/error.xhtml</location>
     </error-page>
 </web-app>

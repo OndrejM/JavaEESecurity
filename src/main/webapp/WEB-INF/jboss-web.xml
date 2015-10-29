@@ -1,0 +1,4 @@
+<jboss-web>
+    <security-domain>MyRealm</security-domain>
+    
+</jboss-web>

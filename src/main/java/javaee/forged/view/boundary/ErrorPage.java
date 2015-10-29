@@ -47,7 +47,7 @@ public class ErrorPage {
     public void initializeResponse() {
         if (!responseInitialized) {
             responseInitialized = true;
-            if (exception instanceof EJBAccessException) {
+            if (exception instanceof EJBAccessException || exception instanceof SecurityException) {
                 setErrorStatus(HttpServletResponse.SC_FORBIDDEN);
             } else {
                 setErrorStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
