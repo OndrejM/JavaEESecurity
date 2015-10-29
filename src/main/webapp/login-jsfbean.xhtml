@@ -1,0 +1,30 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:h="http://java.sun.com/jsf/html" xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:p="http://primefaces.org/ui"
+      xmlns:of="http://omnifaces.org/functions">
+
+    <body>
+        <h1>Prihlásenie cez Primefaces:</h1>
+        <h:form>
+            <p>
+                <div>
+                    <h:outputLabel for="meno" value="Meno"/>
+                </div>
+                <div>
+                    <p:inputText id="meno" value="#{loginController.username}"/>
+                </div>
+            </p>
+            <p>
+                <div>
+                    <h:outputLabel for="heslo" value="Heslo"/>
+                </div>
+                <div>
+                    <p:password id="heslo" value="#{loginController.password}"/>
+                </div>
+            </p>
+            <p>
+                <p:commandButton action="#{loginController.login}" value="Prihlásiť" ajax="false"/>
+            </p>
+        </h:form>
+    </body>
+</html>

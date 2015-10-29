@@ -10,13 +10,44 @@ import javax.servlet.http.HttpServletRequest;
 @Named
 @RequestScoped
 public class LoginController {
+
+    private static final String FACESREDIRECT = "faces-redirect=true";
     
     @Inject
     @Current
     private HttpServletRequest request;
-    
+
+    private String username;
+
+    private String password;
+
     public String logout() throws ServletException {
         request.logout();
-        return "/index.xhtml?faces-redirect=true";
+        return navigationToIndex();
+    }
+
+    private static String navigationToIndex() {
+        return "/index.xhtml?" + FACESREDIRECT;
+    }
+
+    public String login() throws ServletException {
+        request.login(username, password);
+        return navigationToIndex();
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
