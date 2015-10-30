@@ -13,6 +13,7 @@ import javax.inject.Inject;
 public class IndexPage implements Serializable {
 
     @Inject
+    transient
     private AppService appService;
     
     private String welcomeMessage;

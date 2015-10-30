@@ -1,7 +1,7 @@
 package javaee.forged.view.boundary;
 
 import javaee.forged.business.boundary.AppService;
-import javaee.forged.business.boundary.authorisation.model.User;
+import javaee.forged.business.boundary.authorisation.boundary.User;
 import javaee.forged.view.control.Current;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;

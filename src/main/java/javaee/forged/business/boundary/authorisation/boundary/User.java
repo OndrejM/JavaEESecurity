@@ -1,4 +1,4 @@
-package javaee.forged.business.boundary.authorisation.model;
+package javaee.forged.business.boundary.authorisation.boundary;
 
 import java.util.Collections;
 import java.util.HashSet;

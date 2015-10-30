@@ -1,28 +1,25 @@
 package javaee.forged.business.boundary;
 
+import javaee.forged.business.boundary.authorisation.boundary.Guarded;
 import javaee.forged.business.boundary.authorisation.boundary.Right;
+import javaee.forged.business.boundary.authorisation.boundary.RightsAllowed;
 import javaee.forged.business.boundary.authorisation.boundary.UserProvider;
-import javaee.forged.business.boundary.authorisation.model.User;
-import javax.annotation.security.PermitAll;
-import javax.ejb.Stateless;
+import javaee.forged.business.boundary.authorisation.boundary.User;
+import javax.enterprise.context.Dependent;
 import javax.inject.Inject;
 
-@Stateless
+@Dependent
+@Guarded
 public class AppService {
 
     @Inject
     private UserProvider userProvider;
     
-    @PermitAll
+    @RightsAllowed({Right.ADMIN, Right.ADMIN})
     public String updateName(String name) {
-        if (userProvider.currentÚserHasRight(Right.ADMIN)) {
-            return name + "(Zmenené používateľom " + getCurrentUser() + ")";
-        } else {
-            throw new SecurityException("Nedostatočné oprávnenie");
-        }
+        return name + "(Zmenené používateľom " + getCurrentUser() + ")";
     }
     
-    @PermitAll
     public User getCurrentUser() {
         return userProvider.getCurrentUser();
     }

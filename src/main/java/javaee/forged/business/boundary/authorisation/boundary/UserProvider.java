@@ -1,6 +1,5 @@
 package javaee.forged.business.boundary.authorisation.boundary;
 
-import javaee.forged.business.boundary.authorisation.model.User;
 import javax.annotation.Resource;
 import javax.ejb.EJBContext;
 import javax.ejb.Stateless;
@@ -44,7 +43,7 @@ public class UserProvider {
             user.setUsername(userName);
             user.setFirstName(userName);
             user.setLastName("Novák");
-            user.getRoles().add(new Role(Right.ADMIN));
+            //user.getRoles().add(new Role(Right.ADMIN));
             return user;
         }
     }
