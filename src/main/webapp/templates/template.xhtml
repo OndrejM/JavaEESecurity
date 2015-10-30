@@ -11,6 +11,7 @@
         <div>
             <h:form>
                 <p:commandButton action="#{loginController.logout}" value="Odhlásiť" ajax="false"/>
+                Prihlásený používateľ: #{loginController.currentUser}
             </h:form>
         </div>
         <ui:insert name="body">Default content</ui:insert>
