@@ -1,5 +1,6 @@
 package javaee.forged.business.boundary;
 
+import javaee.forged.business.boundary.authorisation.boundary.AllowAll;
 import javaee.forged.business.boundary.authorisation.boundary.Guarded;
 import javaee.forged.business.boundary.authorisation.boundary.Right;
 import javaee.forged.business.boundary.authorisation.boundary.RightsAllowed;
@@ -10,12 +11,13 @@ import javax.inject.Inject;
 
 @Dependent
 @Guarded
+@RightsAllowed(Right.ADMIN)
 public class AppService {
 
     @Inject
     private UserProvider userProvider;
-    
-    @RightsAllowed({Right.ADMIN, Right.ADMIN})
+
+    @AllowAll
     public String updateName(String name) {
         return name + "(Zmenené používateľom " + getCurrentUser() + ")";
     }
